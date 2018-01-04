@@ -140,6 +140,8 @@ public abstract class ConnManager {
       return "java.sql.Date";
     } else if (sqlType == Types.TIME) {
       return "java.sql.Time";
+    } else if (sqlType == -103) {
+      return "String";
     } else if (sqlType == Types.TIMESTAMP) {
       return "java.sql.Timestamp";
     } else if (sqlType == Types.BINARY
@@ -201,6 +203,7 @@ public abstract class ConnManager {
       return Type.DOUBLE;
     case Types.NUMERIC:
     case Types.DECIMAL:
+      case -103:
       return Type.STRING;
     case Types.CHAR:
     case Types.VARCHAR:
@@ -212,6 +215,7 @@ public abstract class ConnManager {
     case Types.DATE:
     case Types.TIME:
     case Types.TIMESTAMP:
+      case -102:
       return Type.LONG;
     case Types.BLOB:
     case Types.BINARY:
